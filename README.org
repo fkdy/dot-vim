@@ -16,7 +16,7 @@
 
 - 将 vimrc 文件拷贝为 $HOME/.vimrc
 
-- dot-vim 文件夹更名为 .vim (for *nix)，vimfile (fow windows)
+- dot-vim 文件夹更名为 .vim (for *nix)，vimfiles (fow windows)
 
 - autoload 链接到 bundle 文件夹下的 vim-pathogen/autoload
 

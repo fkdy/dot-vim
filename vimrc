@@ -6,17 +6,11 @@ set nocompatible
 " vim 自动检测文件编码时的备选字符编码列表
 set fileencodings=utf-8,cp936,gb18030,gbk,gb2312,ucs-bom
 
-" fileencoding to write the file
-set fileencoding=utf-8
-
 " 设置终端使用的编码方式
 set termencoding=utf-8
 
 " Vim 缓冲区、寄存器、表达式等内部使用的字符编码
 set encoding=utf-8
-
-" 写时使用的换行符格式类型
-set fileformat=unix
 
 " 设置参与自动检测换行符格式类型的备选列表
 set fileformats=unix,dos,mac
@@ -115,8 +109,10 @@ set showcmd
 " like <leader>w saves the current file
 let mapleader = ","
 
-" Fast saving
-noremap <leader>w <esc>:w!<cr>
+" Fast saving, with fileformat setting to unix
+" 写时使用 unix 的换行符格式类型
+" using 'utf-8' fileencoding to write the file
+noremap <leader>w <esc>:w! ++ff=unix ++enc=utf-8<cr>
 
 " using <leader>c for <esc> when inserting
 inoremap <leader>c <esc>
