@@ -5,6 +5,7 @@
 - undotree 显示 undo 历史
 - ctrlp 快速打开 buffer 或者 file
 - zenburn 为 color theme
+- startify 替换启动界面
 
 ** 下载安装
 

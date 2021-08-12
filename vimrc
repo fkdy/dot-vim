@@ -261,6 +261,7 @@ let g:startify_lists = [
         \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
         \ { 'type': 'commands',  'header': ['   Commands']       },
         \ ]
+let g:startify_files_number=5
 
 """""""""""""""""""""""""""""""""""""""""""""
 " vim config ends here
