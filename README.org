@@ -21,3 +21,9 @@
 - autoload 链接到 bundle 文件夹下的 vim-pathogen/autoload
 
 - colors 链接到 bundle 文件夹下的 zenburn/color
+
+- 更新每个插件的 doc 到 helptags
+
+#+begin_src vimrc
+  :helptags /path/to/plug-in/doc
+#+end_src
