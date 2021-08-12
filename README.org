@@ -1,0 +1,22 @@
+* vim 配置文件
+
+- pathogen 管理插件
+- nerdtree 显示文件夹内容
+- undotree 显示 undo 历史
+- ctrlp 快速打开 buffer 或者 file
+- zenburn 为 color theme
+
+** 下载安装
+
+- clone 这个 repo
+- init & update submodule in the repo
+
+** 使用方法
+
+- 将 vimrc 文件拷贝为 $HOME/.vimrc
+
+- dot-vim 文件夹更名为 .vim (for *nix)，vimfile (fow windows)
+
+- autoload 链接到 bundle 文件夹下的 vim-pathogen/autoload
+
+- colors 链接到 bundle 文件夹下的 zenburn/color
