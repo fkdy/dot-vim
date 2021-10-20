@@ -115,7 +115,7 @@ let mapleader = ","
 noremap <leader>w <esc>:w! ++ff=unix ++enc=utf-8<cr>
 
 " using <leader>c for <esc> when inserting
-inoremap <leader>c <esc>
+noremap <leader>c <esc>
 
 " copy to clipboard (cut-buffer)
 noremap <leader>y "+y
@@ -185,7 +185,7 @@ fun! CleanExtraSpaces()
 endfun
 
 " shortcut to delete trailing whitespace
-nnoremap <leader>c :call CleanExtraSpaces()<cr>
+nnoremap <leader><space> :call CleanExtraSpaces()<cr>
 
 if has("autocmd")
     autocmd BufWritePre *.{vim,sv,v,c,cpp,h,hpp,py} :call CleanExtraSpaces()
