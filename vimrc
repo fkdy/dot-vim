@@ -104,6 +104,9 @@ set cursorline
 " display incomplete commands
 set showcmd
 
+" keep column position of the cursor
+set nostartofline
+
 """""""""""""""""""""""""""""""""""""""""""""
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
