@@ -262,5 +262,61 @@ let g:startify_lists = [
         \ ]
 let g:startify_files_number=5
 
+""""""""
+" vim-gutentags
+""""""""
+if has('cscope')
+  " gutentags 搜索工程目录的标志，当前文件路径向上递归直到碰到这些文件/目录名
+  let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
+
+  " 所生成的数据文件的名称
+  let g:gutentags_ctags_tagfile = '.tags'
+
+  " 开启 gtags 支持：
+  let g:gutentags_modules = []
+  if executable('gtags-cscope') && executable('gtags')
+    let g:gutentags_modules += ['gtags_cscope']
+    "   's'   symbol: find all references to the token under cursor
+    "   'g'   global: find global definition(s) of the token under cursor
+    "   'c'   calls:  find all calls to the function name under cursor
+    "   't'   text:   find all instances of the text under cursor
+    "   'e'   egrep:  egrep search for the word under cursor
+    "   'f'   file:   open the filename under cursor
+    "   'i'   includes: find files that include the filename under cursor
+    "   'd'   called: find functions that function under cursor calls
+    nnoremap <leader>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+    nnoremap <leader>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+    nnoremap <leader>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+    nnoremap <leader>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+    nnoremap <leader>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+    nnoremap <leader>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+    nnoremap <leader>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+    nnoremap <leader>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+
+    " command line abbreviation
+    cnoreabbrev csa cs add
+    cnoreabbrev csf cs find
+    cnoreabbrev csk cs kill
+    cnoreabbrev csr cs reset
+    cnoreabbrev css cs show
+    cnoreabbrev csh cs help
+  endif
+
+  " 将自动生成的 ctags/gtags 文件全部放入 ~/.cache/tags 目录中，避免污染工程目录
+  let g:gutentags_cache_dir = expand('~/.cache/tags')
+
+  " 配置 ctags 的参数，老的 Exuberant-ctags 不能有 --extra=+q，注意
+  let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
+  let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
+  let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+
+  " 如果使用 universal ctags 需要增加下面一行，老的 Exuberant-ctags 不能加下一行
+  let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
+
+  " 禁用 gutentags 自动加载 gtags 数据库的行为
+  let g:gutentags_auto_add_gtags_cscope = 1
+
+endif
+
 """""""""""""""""""""""""""""""""""""""""""""
 " vim config ends here
